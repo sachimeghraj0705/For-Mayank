@@ -78,24 +78,20 @@ border-radius:6px;
 box-shadow:0 15px 30px rgba(0,0,0,0.4);
 }
 
-.polaroid:hover{
-  transform: scale(1.03) rotate(0deg);
-  z-index:10;
-}
-
 
 .polaroid img{
 width:100%;
-height:240px;
+height:260px;
 object-fit:cover;
 border-radius:4px;
 }
 
 /* Positions */
 /* Positions */
-.p1{top:0;transform:rotate(-4deg);}
-.p2{top:230px;transform:rotate(3deg);}
-.p3{top:460px;transform:rotate(-3deg);}
+/* Positions */
+.p1{top:0;transform:rotate(-3deg);}
+.p2{top:300px;transform:rotate(2deg);}
+.p3{top:600px;transform:rotate(-2deg);}
 
 
 /* Tape */
