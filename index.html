@@ -2,24 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine’s Day 💖</title>
+<title>Happy Valentine’s Day ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Dancing+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="card">
+<div class="kisses"></div>
 
-<h1>Happy Valentine’s Day Mayank 💝</h1>
+<!-- ENVELOPE -->
+<div class="envelope-wrapper" onclick="openLetter()">
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="seal">❤️</div>
 
-<p class="message" id="typeText"></p>
+    <div class="front-text">
+      Happy Valentine’s Day 💖
+    </div>
+  </div>
+</div>
 
-<div class="polaroid-strip">
-  <div class="polaroid p1"><img src="img1.jpg"></div>
-  <div class="polaroid p2"><img src="img2.jpg"></div>
-  <div class="polaroid p3"><img src="img3.jpg"></div>
+<!-- LETTER -->
+<div class="letter hidden" id="letter">
+
+<h1>Happy Valentine’s Day Mayank 💖</h1>
+
+<p id="typedText"></p>
+
+<!-- FILM STRIP PHOTOS -->
+<div class="film-strip">
+  <img src="img1.jpg">
+  <img src="img2.jpg">
+  <img src="img3.jpg">
 </div>
 
 </div>
