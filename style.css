@@ -148,5 +148,13 @@ transparent 0 25px,
 transparent 35px 60px
 );
 opacity:.4;
-pointer-ev
+pointer-events:none;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+.paper{padding:35px;}
+h1{font-size:2.4rem;}
+}
 
