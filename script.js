@@ -22,36 +22,36 @@ and every quiet moment we share.
 I care about you more than I can ever properly put into words. ❤️
 `;
 
-let index = 0;
+let i=0;
 
 function openLetter(){
-  document.querySelector(".flap").style.transform="rotateX(180deg)";
+document.querySelector(".flap").style.transform="rotateX(180deg)";
 
-  setTimeout(()=>{
-    document.querySelector(".envelope-wrapper").style.display="none";
-    document.getElementById("letter").classList.remove("hidden");
-    typeWriter();
-  },700);
+setTimeout(()=>{
+document.querySelector(".envelope-wrapper").style.display="none";
+document.getElementById("letter").classList.remove("hidden");
+typeWriter();
+},700);
 }
 
 function typeWriter(){
-  if(index < message.length){
-    document.getElementById("typedText").innerHTML += message.charAt(index);
-    index++;
-    setTimeout(typeWriter,35);
-  }
+if(i<message.length){
+document.getElementById("typedText").innerHTML+=message.charAt(i);
+i++;
+setTimeout(typeWriter,35);
+}
 }
 
 /* Floating kisses */
 
-const kissContainer=document.querySelector(".kisses");
+const container=document.querySelector(".kisses");
 
 setInterval(()=>{
-  const kiss=document.createElement("span");
-  kiss.innerText="💋";
-  kiss.style.left=Math.random()*100+"vw";
-  kiss.style.animationDuration=5+Math.random()*5+"s";
-  kissContainer.appendChild(kiss);
-
-  setTimeout(()=>kiss.remove(),10000);
+const kiss=document.createElement("span");
+kiss.innerText="💋";
+kiss.style.left=Math.random()*100+"vw";
+kiss.style.animationDuration=5+Math.random()*5+"s";
+container.appendChild(kiss);
+setTimeout(()=>kiss.remove(),10000);
 },400);
+
