@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Valentine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="background"></div>
 
-    <!-- Envelope -->
-    <div class="envelope" id="envelope">
-        <div class="flap"></div>
+<section class="envelope-section">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="body"></div>
+    <div class="seal" id="seal">Press</div>
+  </div>
+</section>
 
-        <div class="seal" onclick="openEnvelope()">
-            Press
-        </div>
+<section class="letter-section hidden" id="letterSection">
+  <div class="letter">
+    <h1>Happy Valentine’s Day</h1>
+    <p id="typedText"></p>
+  </div>
+</section>
 
-        <div class="letter" id="letter">
-            <h1 class="title">Happy Valentine’s Day</h1>
-            <div id="typewriter"></div>
-        </div>
-    </div>
-
-    <!-- Film Strip -->
-    <div class="film-strip">
-        <div class="frame"><img src="img1.jpg"></div>
-        <div class="frame"><img src="img2.jpg"></div>
-        <div class="frame"><img src="img3.jpg"></div>
-    </div>
-
-</div>
+<section class="film-section hidden" id="filmSection">
+  <div class="film-strip">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+  </div>
+</section>
 
 <script src="script.js"></script>
 </body>
