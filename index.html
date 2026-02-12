@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Mayank ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="envelope" id="envelope">
-  <div class="flap"></div>
+<div class="container">
 
-  <div class="seal" onclick="openLetter()">
-    <span>Press</span>
-    🌸
-  </div>
+    <!-- Envelope -->
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
 
-  <div class="scroll" id="scroll">
-    <h1>Happy Valentine’s Day</h1>
+        <div class="seal" onclick="openEnvelope()">
+            Press
+        </div>
 
-    <div id="typedText"></div>
-
-    <div class="film-strip">
-      <img src="img1.jpg">
-      <img src="img2.jpg">
-      <img src="img3.jpg">
+        <div class="letter" id="letter">
+            <h1 class="title">Happy Valentine’s Day</h1>
+            <div id="typewriter"></div>
+        </div>
     </div>
-  </div>
+
+    <!-- Film Strip -->
+    <div class="film-strip">
+        <div class="frame"><img src="img1.jpg"></div>
+        <div class="frame"><img src="img2.jpg"></div>
+        <div class="frame"><img src="img3.jpg"></div>
+    </div>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
