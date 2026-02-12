@@ -1,8 +1,23 @@
-const seal = document.getElementById("seal");
+const openBtn = document.getElementById("openBtn");
 const envelope = document.getElementById("envelope");
 const letter = document.getElementById("letter");
-const film = document.getElementById("film");
+const title = document.getElementById("title");
 const text = document.getElementById("text");
+const film = document.getElementById("film");
+
+/* FLOATING KISSES GENERATOR */
+const kisses = document.querySelector(".kisses");
+for(let i=0;i<40;i++){
+ let k=document.createElement("span");
+ k.innerHTML="💋";
+ k.style.left=Math.random()*100+"vw";
+ k.style.animationDuration=10+Math.random()*10+"s";
+ k.style.fontSize=16+Math.random()*14+"px";
+ kisses.appendChild(k);
+}
+
+/* MESSAGE */
+const heading = "Happy Valentine's Day Mayank ❤️";
 
 const message = `Happy Valentine’s Day, my love.
 
@@ -21,27 +36,39 @@ so I made this little something for you instead.
 I hope you like it, because I’ve been planning this
 since before we took a break.
 
-I’m grateful for every laugh, every conversation,
+I’m grateful for every laugh,
+every conversation,
 and every quiet moment we share.
 
 I care about you more than I can ever properly put into words. ❤️`;
 
-seal.onclick = () => {
-envelope.classList.add("open");
+/* OPEN ENVELOPE */
 
-setTimeout(()=>{
-document.querySelector(".envelope-wrapper").style.display="none";
-letter.classList.remove("hidden");
-typeWriter(0);
-},1000);
+openBtn.onclick = () =>{
+ envelope.classList.add("open");
+ letter.style.display="block";
+ typeWriterTitle();
 };
 
-function typeWriter(i){
-if(i < message.length){
-text.innerHTML += message.charAt(i);
-setTimeout(()=>typeWriter(i+1),40);
+let i=0;
+let j=0;
+
+function typeWriterTitle(){
+ if(i < heading.length){
+   title.innerHTML += heading.charAt(i);
+   i++;
+   setTimeout(typeWriterTitle,80);
+ } else{
+   typeWriterText();
+ }
 }
-else{
-film.classList.remove("hidden");
-}
+
+function typeWriterText(){
+ if(j < message.length){
+   text.innerHTML += message.charAt(j);
+   j++;
+   setTimeout(typeWriterText,25);
+ } else{
+   film.style.display="block";
+ }
 }
