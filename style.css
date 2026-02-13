@@ -189,3 +189,14 @@ body{
     opacity:0;
   }
 }
+
+/* Closing fade-in */
+.closing{
+  opacity:0;
+  transition:1.5s ease;
+}
+
+.show-closing{
+  opacity:1;
+}
+
