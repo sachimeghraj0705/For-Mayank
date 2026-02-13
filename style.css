@@ -162,3 +162,28 @@ border-radius:4px;
 .left{transform:rotate(-6deg);}
 .center{transform:rotate(4deg);}
 .right{transform:rotate(-3deg);}
+
+#finalNote{
+  display:none;
+  margin:80px auto 120px;
+  text-align:center;
+  color:#2b1b10;
+  animation:fadeIn 2s ease forwards;
+}
+
+#finalNote p{
+  font-size:22px;
+  font-style:italic;
+  letter-spacing:0.5px;
+}
+
+#finalNote span{
+  display:block;
+  margin-top:18px;
+  font-size:20px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
