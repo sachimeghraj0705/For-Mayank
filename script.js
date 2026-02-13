@@ -55,6 +55,10 @@ function typeWriter(){
   }
   else{
     photos.style.display="flex";
+setTimeout(()=>{
+  document.getElementById("finalNote").style.display="block";
+},1200);
+
   }
 }
 
