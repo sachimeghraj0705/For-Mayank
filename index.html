@@ -6,178 +6,13 @@
 <title>For Mayank ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-body{
-  margin:0;
-  font-family:'Playfair Display',serif;
-  background:#7b0f14;
-  overflow-x:hidden;
-  text-align:center;
-}
-
-/* ---------------- FLOATING KISSES ---------------- */
-
-.kiss{
-  position:fixed;
-  font-size:22px;
-  animation:float 12s linear infinite;
-  opacity:0.8;
-  z-index:1;
-}
-
-@keyframes float{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-100vh);}
-}
-
-/* ---------------- ENVELOPE ---------------- */
-
-.envelope-wrapper{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.envelope{
-  width:520px;
-  height:330px;
-  background:linear-gradient(#c4161c,#a50f15);
-  position:relative;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.flap{
-  position:absolute;
-  top:0;
-  width:100%;
-  height:50%;
-  background:#e01b22;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-  transform-origin:top;
-  transition:1s;
-}
-
-.wax{
-  width:90px;
-  height:90px;
-  background:url("wax-seal.png") center/contain no-repeat;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-.open .flap{
-  transform:rotateX(180deg);
-}
-
-.open{
-  opacity:0;
-  transition:1s;
-}
-
-/* ---------------- LETTER ---------------- */
-
-.letter-section{
-  display:none;
-  padding-top:60px;
-}
-
-.letter{
-  background:url("torn-paper.png") center/cover no-repeat;
-  max-width:700px;
-  margin:auto;
-  padding:90px 60px;
-  max-height:75vh;
-  overflow-y:auto;
-  box-shadow:0 0 40px rgba(255,255,255,0.3);
-  scroll-behavior:smooth;
-}
-
-.type{
-  white-space:pre-line;
-  line-height:1.8;
-  font-size:18px;
-}
-
-/* ---------------- POLAROIDS ---------------- */
-
-.polaroids{
-  margin-top:80px;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-  opacity:0;
-  transition:1.5s;
-}
-
-.show-photos{
-  opacity:1;
-}
-
-.polaroid{
-  background:#f4ecd8;
-  padding:14px 14px 45px;
-  width:230px;
-  position:relative;
-  box-shadow:0 10px 25px rgba(0,0,0,0.45);
-  transform:rotate(-3deg);
-}
-
-.polaroid:nth-child(2){transform:rotate(2deg);}
-.polaroid:nth-child(3){transform:rotate(-2deg);}
-
-.polaroid img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  display:block;
-}
-
-/* Beige Tape */
-
-.polaroid::before{
-  content:"";
-  position:absolute;
-  top:-22px;
-  left:50%;
-  transform:translateX(-50%);
-  width:95px;
-  height:40px;
-  background:url("tape.png") center/contain no-repeat;
-}
-
-/* ---------------- CLOSING ---------------- */
-
-.closing{
-  margin-top:90px;
-  color:white;
-  font-weight:bold;
-  padding-bottom:120px;
-  font-size:18px;
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- Floating kisses -->
-<script>
-for(let i=0;i<18;i++){
-  let k=document.createElement("div");
-  k.className="kiss";
-  k.innerHTML="💋";
-  k.style.left=Math.random()*100+"vw";
-  k.style.animationDuration=10+Math.random()*10+"s";
-  document.body.appendChild(k);
-}
-</script>
+<!-- Floating kisses auto via JS -->
 
 <!-- Envelope -->
 <div class="envelope-wrapper">
@@ -190,81 +25,27 @@ for(let i=0;i<18;i++){
 <!-- Letter -->
 <div class="letter-section" id="letterSection">
 
-<div class="letter">
-<div id="typedText" class="type"></div>
+  <div class="letter">
+    <div id="typedText" class="type"></div>
+  </div>
+
+  <!-- Photos -->
+  <div class="polaroids" id="polaroids">
+    <div class="polaroid"><img src="img1.jpg"></div>
+    <div class="polaroid"><img src="img2.jpg"></div>
+    <div class="polaroid"><img src="img3.jpg"></div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing hidden">
+    No matter where life takes us, you’ll always have a piece of my heart.<br><br>
+    Love,<br>
+    Sachi
+  </div>
+
 </div>
 
-<!-- Photos -->
-<div class="polaroids" id="polaroids">
-  <div class="polaroid"><img src="img1.jpg"></div>
-  <div class="polaroid"><img src="img2.jpg"></div>
-  <div class="polaroid"><img src="img3.jpg"></div>
-</div>
-
-<div class="closing hidden">
-No matter where life takes us, you’ll always have a piece of my heart.<br><br>
-Love,<br>
-Sachi
-</div>
-
-</div>
-
-<script>
-
-const envelope=document.getElementById("envelope");
-const letterSection=document.getElementById("letterSection");
-const typed=document.getElementById("typedText");
-const polaroids=document.getElementById("polaroids");
-
-const letterText=`Mayank,
-
-Happy Valentine’s Day, Baby.
-
-I don’t think you realize how much you mean to me.
-
-Even though we are going through a lot right now,
-I just want you to know that whether we are meant to be or not,
-I love you and I meant it when I said it.
-
-I really wanted to celebrate Valentine’s this year.
-I was hoping we could, because we barely get to celebrate
-any special days together.
-
-But it seems like the universe had other plans,
-so I made this little something for you instead.
-
-I hope you like it, because I’ve been planning this
-since before we took a break.
-
-I’m grateful for every laugh, every conversation,
-and every quiet moment we share.
-
-I care about you more than I can ever properly put into words. ❤️`;
-
-let i=0;
-
-function typeWriter(){
-  if(i<letterText.length){
-    typed.innerHTML+=letterText.charAt(i);
-    i++;
-    setTimeout(typeWriter,30);
-  }else{
-    setTimeout(()=>{
-      polaroids.classList.add("show-photos");
-    },600);
-  }
-}
-
-envelope.addEventListener("click",()=>{
-  envelope.classList.add("open");
-  setTimeout(()=>{
-    document.querySelector(".envelope-wrapper").style.display="none";
-    letterSection.style.display="block";
-    typeWriter();
-  },1000);
-});
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
