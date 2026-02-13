@@ -1,9 +1,10 @@
 const seal = document.getElementById("seal");
-const envelopeWrapper = document.getElementById("envelopeWrapper");
 const envelope = document.querySelector(".envelope");
-const letter = document.getElementById("letter");
+const envelopeScreen = document.getElementById("envelopeScreen");
+
+const letterContainer = document.getElementById("letterContainer");
 const titleEl = document.getElementById("title");
-const msgEl = document.getElementById("message");
+const textEl = document.getElementById("text");
 const photos = document.getElementById("photos");
 
 const titleText = "Happy Valentine's Day Mayank ❤️";
@@ -21,39 +22,35 @@ const paragraphs = [
 ];
 
 seal.onclick = () => {
+
   envelope.classList.add("open");
 
   setTimeout(()=>{
-    envelopeWrapper.classList.add("hide-envelope");
-  },800);
-
-  setTimeout(()=>{
-    letter.style.display="block";
-    startTyping();
-  },1600);
+    envelopeScreen.style.display="none";
+    letterContainer.style.display="block";
+    typeWriter();
+  },1200);
 };
-
-/* TYPEWRITER */
 
 let t=0,p=0,c=0;
 
-function startTyping(){
+function typeWriter(){
   if(t < titleText.length){
     titleEl.innerHTML += titleText[t++];
-    setTimeout(startTyping,70);
+    setTimeout(typeWriter,60);
   }
   else if(p < paragraphs.length){
-    if(!msgEl.children[p]){
+    if(!textEl.children[p]){
       const para=document.createElement("p");
-      msgEl.appendChild(para);
+      textEl.appendChild(para);
     }
 
     if(c < paragraphs[p].length){
-      msgEl.children[p].innerHTML += paragraphs[p][c++];
-      setTimeout(startTyping,40);
-    }else{
+      textEl.children[p].innerHTML += paragraphs[p][c++];
+      setTimeout(typeWriter,30);
+    } else {
       p++; c=0;
-      setTimeout(startTyping,400);
+      setTimeout(typeWriter,400);
     }
   }
   else{
@@ -66,13 +63,12 @@ function startTyping(){
 const kissBox = document.getElementById("kisses");
 
 setInterval(()=>{
-  const k = document.createElement("div");
+  const k=document.createElement("div");
   k.className="kiss";
   k.innerHTML="💋";
   k.style.left=Math.random()*100+"vw";
-  k.style.fontSize=14+Math.random()*12+"px";
+  k.style.fontSize=14+Math.random()*14+"px";
   k.style.animationDuration=8+Math.random()*6+"s";
   kissBox.appendChild(k);
-
   setTimeout(()=>k.remove(),12000);
 },500);
