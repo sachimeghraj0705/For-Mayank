@@ -155,3 +155,30 @@ body{
 .show-closing{
   opacity:1;
 }
+
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 600px){
+
+  .letter{
+    width:92%;
+    padding:50px 28px;
+    background:url("torn-paper.png") top center/100% auto no-repeat;
+  }
+
+  .type{
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .polaroid{
+    width:200px;
+  }
+
+  .polaroid img{
+    height:230px;
+  }
+
+}
+
