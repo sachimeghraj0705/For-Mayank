@@ -57,8 +57,9 @@ function typeWriter(){
 
     // show closing text AFTER polaroids
     setTimeout(()=>{
-      closing.classList.add("show-closing");
-    },1400);
+     closing.classList.remove("hidden");
+closing.classList.add("show-closing");
+
   }
 }
 
