@@ -82,14 +82,14 @@ body{
 }
 
 .letter{
+  .letter{
   background:url("torn-paper.png") center/cover no-repeat;
   max-width:700px;
   margin:auto;
   padding:90px 60px;
-  max-height:75vh;
-  overflow-y:auto;
   box-shadow:0 0 40px rgba(255,255,255,0.3);
 }
+
 
 .type{
   white-space:pre-line;
