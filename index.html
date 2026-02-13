@@ -2,248 +2,246 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Mayank ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mayank ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia, serif;
-}
-
-/* BACKGROUND */
-body{
-background:#7b0f14;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: #7b0f14;
+  overflow-x: hidden;
+  text-align: center;
+  color: black;
 }
 
 /* FLOATING KISSES */
-.kiss{
-position:fixed;
-top:-40px;
-font-size:20px;
-opacity:0.5;
-animation:fall linear infinite;
+.kiss {
+  position: fixed;
+  width: 25px;
+  animation: float 15s linear infinite;
+  opacity: 0.7;
+  z-index: 1;
 }
-@keyframes fall{
-to{transform:translateY(110vh);}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
 }
 
 /* ENVELOPE */
-.envelope-wrapper{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-cursor:pointer;
-transition:opacity 1s ease;
+
+.envelope-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.envelope{
-width:360px;
-height:230px;
-background:#b31217;
-border-radius:12px;
-position:relative;
-box-shadow:0 20px 40px rgba(0,0,0,.5);
-overflow:hidden;
+.envelope {
+  position: relative;
+  width: 500px;
+  height: 320px;
+  background: linear-gradient(#c4161c, #a50f15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 1s ease, opacity 1s ease;
 }
 
-.flap{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#d21a20;
-clip-path:polygon(0 0,100% 0,50% 50%);
-transform-origin:top;
-transition:transform 1.2s ease;
-z-index:2;
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(#e01b22, #b31217);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
 }
 
-.wax{
-position:absolute;
-width:90px;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:3;
+.wax {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: url('wax-seal.png') center/contain no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+}
+
+.open {
+  transform: scale(0.9);
+  opacity: 0;
 }
 
 /* LETTER */
-.letter{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%) scale(0);
-width:620px;
-max-width:90%;
-background:url("torn-paper.png");
-background-size:cover;
-padding:60px;
-text-align:center;
-box-shadow:0 0 40px rgba(255,255,255,.6);
-border-radius:12px;
-transition:transform 1s ease;
-z-index:5;
+
+.letter-section {
+  display: none;
+  padding-top: 60px;
 }
 
-.letter h1{
-font-size:34px;
-margin-bottom:20px;
+.letter {
+  background: url('torn-paper.png') center/cover no-repeat;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 100px 60px;
+  box-shadow: 0 0 40px rgba(255,255,255,0.2);
 }
 
-.letter p{
-font-size:18px;
-line-height:1.7;
-margin-bottom:14px;
+.letter h1 {
+  margin-bottom: 20px;
 }
 
-/* PHOTOS */
-.photos{
-display:flex;
-gap:30px;
-justify-content:center;
-margin-top:40px;
-opacity:0;
-transition:opacity 2s ease;
+.letter p {
+  margin-bottom: 18px;
+  line-height: 1.6;
 }
 
-.polaroid{
-background:#f2e6d3;
-padding:12px 12px 40px;
-box-shadow:0 15px 30px rgba(0,0,0,.5);
-transform:rotate(-4deg);
+/* POLAROIDS */
+
+.polaroids {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.polaroid:nth-child(2){transform:rotate(3deg);}
-.polaroid:nth-child(3){transform:rotate(-2deg);}
-
-.polaroid img{
-width:210px;
-display:block;
+.polaroid {
+  background: #f5e6cc;
+  padding: 12px;
+  width: 220px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: rotate(-3deg);
+  transition: transform 0.3s;
 }
 
-/* SIGNATURE */
-.signature{
-margin-top:25px;
-font-size:18px;
-color:white;
-font-weight:bold;
+.polaroid:nth-child(2) {
+  transform: rotate(2deg);
 }
 
-/* HIDDEN */
-.hidden{display:none;}
+.polaroid:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+.polaroid img {
+  width: 100%;
+  display: block;
+}
+
+.tape {
+  width: 60px;
+  position: relative;
+  top: -15px;
+}
+
+/* CLOSING LINE */
+
+.closing {
+  margin-top: 80px;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 120px;
+}
 
 </style>
 </head>
-
 <body>
 
-<!-- KISSES -->
+<!-- Floating kisses -->
 <script>
-for(let i=0;i<30;i++){
-let k=document.createElement("div");
-k.className="kiss";
-k.innerHTML="💋";
-k.style.left=Math.random()*100+"vw";
-k.style.animationDuration=6+Math.random()*6+"s";
-document.body.appendChild(k);
+for (let i = 0; i < 15; i++) {
+  const kiss = document.createElement("img");
+  kiss.src = "lip-sticker.png";
+  kiss.className = "kiss";
+  kiss.style.left = Math.random() * 100 + "vw";
+  kiss.style.animationDuration = (10 + Math.random() * 10) + "s";
+  document.body.appendChild(kiss);
 }
 </script>
 
-<!-- ENVELOPE -->
-<div class="envelope-wrapper" id="envelope">
-  <div class="envelope">
-    <div class="flap" id="flap"></div>
-    <img src="wax-seal.png" class="wax">
+<div class="envelope-wrapper">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="wax"></div>
   </div>
 </div>
 
-<!-- LETTER -->
-<div class="letter" id="letter">
-<h1>Mayank,</h1>
-<div id="typedText"></div>
+<div class="letter-section" id="letterSection">
 
-<div class="photos" id="photos">
-  <div class="polaroid"><img src="img1.jpg"></div>
-  <div class="polaroid"><img src="img2.jpg"></div>
-  <div class="polaroid"><img src="img3.jpg"></div>
-</div>
+  <div class="letter">
+    <h1>Mayank,</h1>
 
-<div class="signature">
-No matter where life takes us, you'll always have a piece of my heart.<br>
-Love,<br>Sachi
-</div>
+    <p><strong>Happy Valentine's Day, Baby.</strong></p>
+
+    <p>I don’t think you realize how much you mean to me.</p>
+
+    <p>Even though we are going through a lot right now,
+    I just want you to know that whether we are meant to be or not,
+    I love you and I meant it when I said it.</p>
+
+    <p>I really wanted to celebrate Valentine’s this year.
+    I was hoping we could, because we barely get to celebrate
+    any special days together.</p>
+
+    <p>But it seems like the universe had other plans,
+    so I made this little something for you instead.</p>
+
+    <p>I hope you like it, because I’ve been planning this
+    since before we took a break.</p>
+
+    <p>I’m grateful for every laugh, every conversation,
+    and every quiet moment we share.</p>
+
+    <p>I care about you more than I can ever properly put into words. ❤️</p>
+
+  </div>
+
+  <div class="polaroids">
+    <div class="polaroid">
+      <img src="tape.png" class="tape">
+      <img src="img1.jpg">
+    </div>
+
+    <div class="polaroid">
+      <img src="tape.png" class="tape">
+      <img src="img2.jpg">
+    </div>
+
+    <div class="polaroid">
+      <img src="tape.png" class="tape">
+      <img src="img3.jpg">
+    </div>
+  </div>
+
+  <div class="closing">
+    No matter where life takes us, you’ll always have a piece of my heart.<br><br>
+    Love,<br>
+    Sachi
+  </div>
 
 </div>
 
 <script>
+const envelope = document.getElementById("envelope");
+const letterSection = document.getElementById("letterSection");
 
-const message = `
-Happy Valentine's Day, Baby.
-
-I don’t think you realize how much you mean to me.
-Even though we are going through a lot right now,
-I just want you to know that whether we are meant to be or not,
-I love you and I meant it when I said it.
-
-I really wanted to celebrate Valentine’s this year.
-I was hoping we could, because we barely get to celebrate
-any special days together.
-
-But it seems like the universe had other plans,
-so I made this little something for you instead.
-
-I hope you like it, because I’ve been planning this
-since before we took a break.
-
-I’m grateful for every laugh, every conversation,
-and every quiet moment we share.
-
-I care about you more than I can ever properly put into words. ❤️
-`;
-
-const envelope=document.getElementById("envelope");
-const flap=document.getElementById("flap");
-const letter=document.getElementById("letter");
-const typed=document.getElementById("typedText");
-const photos=document.getElementById("photos");
-
-envelope.onclick=()=>{
-flap.style.transform="rotateX(180deg)";
-envelope.style.opacity="0";
-
-setTimeout(()=>{
-envelope.classList.add("hidden");
-letter.style.transform="translate(-50%,-50%) scale(1)";
-typeWriter();
-},1200);
-};
-
-function typeWriter(){
-let i=0;
-function write(){
-if(i<message.length){
-typed.innerHTML += message[i]==="\n" ? "<br>" : message[i];
-i++;
-setTimeout(write,30);
-}else{
-photos.style.opacity="1";
-}
-}
-write();
-}
-
+envelope.addEventListener("click", () => {
+  envelope.classList.add("open");
+  setTimeout(() => {
+    document.querySelector(".envelope-wrapper").style.display = "none";
+    letterSection.style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 1000);
+});
 </script>
 
 </body>
