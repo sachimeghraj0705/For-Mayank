@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>For Mayank ❤️</title>
@@ -8,30 +8,39 @@
 
 <body>
 
-<div class="kisses"></div>
+<!-- Floating kisses -->
+<div id="kisses"></div>
 
-<!-- ENVELOPE -->
-<div class="envelope-wrapper" id="envelopeWrapper">
-  <div class="envelope">
-    <div class="flap" id="flap"></div>
-    <div class="body"></div>
-    <div class="seal" id="openBtn">Press</div>
+<!-- Envelope -->
+<div class="scene">
+
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="envelope-back"></div>
+    <div class="envelope-front"></div>
+
+    <button id="seal">Press</button>
   </div>
-</div>
 
-<!-- SCROLL -->
-<div class="scroll-section" id="scrollSection">
-  <div class="scroll-paper" id="scrollPaper">
+  <!-- Letter -->
+  <div class="letter" id="letter">
     <h1 id="title"></h1>
     <div id="message"></div>
   </div>
-</div>
 
-<!-- PHOTOS -->
-<div class="photo-section" id="photoSection">
-  <div class="polaroid left"><img src="img1.jpg"></div>
-  <div class="polaroid center"><img src="img2.jpg"></div>
-  <div class="polaroid right"><img src="img3.jpg"></div>
+  <!-- Photos -->
+  <div class="photos" id="photos">
+    <div class="polaroid tilt1">
+      <img src="img1.jpg">
+    </div>
+    <div class="polaroid tilt2">
+      <img src="img2.jpg">
+    </div>
+    <div class="polaroid tilt3">
+      <img src="img3.jpg">
+    </div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
