@@ -1,144 +1,168 @@
-body{
+*{
 margin:0;
-background:radial-gradient(circle,#7a0f1a,#3b050a);
-font-family:Georgia,serif;
-text-align:center;
-overflow-x:hidden;
-color:#2b1b10;
+padding:0;
+box-sizing:border-box;
+font-family: "Georgia", serif;
 }
 
-/* FLOATING KISSES */
-.kiss{
-position:fixed;
-font-size:18px;
-animation:float 8s linear infinite;
-opacity:0.7;
-}
-@keyframes float{
-0%{transform:translateY(100vh);opacity:0}
-100%{transform:translateY(-10vh);opacity:1}
-}
-
-/* ENVELOPE */
-
-.envelope-wrapper{
-height:100vh;
+body{
+background:#f3efe9;
+min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+overflow-x:hidden;
 }
+
+.scene{
+position:relative;
+width:100%;
+max-width:900px;
+text-align:center;
+}
+
+/* ---------------- Envelope ---------------- */
 
 .envelope{
 position:relative;
-width:520px;
-height:330px;
+width:360px;
+height:230px;
+margin:auto;
 }
 
-.body{
+.envelope-back{
 position:absolute;
-bottom:0;
 width:100%;
-height:230px;
-background:#f2e1b8;
-border-radius:0 0 12px 12px;
+height:100%;
+background:#b11217;
+border-radius:8px;
+}
+
+.envelope-front{
+position:absolute;
+width:100%;
+height:100%;
+background:#c9151b;
+clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+border-radius:8px;
 }
 
 .flap{
 position:absolute;
-top:0;
-width:100%;
+top:-120px;
+left:0;
+width:0;
 height:0;
-border-left:260px solid transparent;
-border-right:260px solid transparent;
-border-bottom:150px solid #b1121b;
+border-left:180px solid transparent;
+border-right:180px solid transparent;
+border-bottom:120px solid #a50f14;
+transition:0.8s ease;
 transform-origin:top;
-transition:transform 1s ease;
 }
 
-.seal{
+/* Wax seal */
+
+#seal{
 position:absolute;
-bottom:90px;
+top:50%;
 left:50%;
-transform:translateX(-50%);
-width:60px;
-height:60px;
-background:radial-gradient(circle,#b40000,#5c0000);
+transform:translate(-50%,-50%);
+width:70px;
+height:70px;
 border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
+background:radial-gradient(circle,#f3b2b2,#d98282);
+border:none;
+color:#7a1b1b;
+font-size:18px;
+font-weight:bold;
 cursor:pointer;
-box-shadow:0 0 18px rgba(0,0,0,0.6);
-font-size:14px;
+box-shadow:0 6px 15px rgba(0,0,0,0.4);
+transition:0.3s;
+z-index:10;
 }
 
-/* SCROLL */
+#seal:hover{
+transform:translate(-50%,-50%) scale(1.05);
+}
 
-.scroll-section{
+/* Open animation */
+.open .flap{
+transform:rotateX(180deg);
+}
+
+.open #seal{
+opacity:0;
+pointer-events:none;
+}
+
+/* ---------------- Letter ---------------- */
+
+.letter{
+width:500px;
+max-width:90%;
+background:#fbf3e6;
+margin:30px auto;
+padding:40px;
+border-radius:6px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 display:none;
-padding-top:60px;
+animation:scrollDown 1s ease forwards;
 }
 
-.scroll-paper{
-background:linear-gradient(#fff2d2,#f3ddb5);
-width:70%;
-max-width:720px;
-margin:0 auto;
-padding:80px 70px;
-border-radius:10px;
-box-shadow:0 0 40px rgba(0,0,0,0.4);
-transform:scaleY(0);
-transform-origin:top;
-animation:unroll 1.4s ease forwards;
+@keyframes scrollDown{
+from{opacity:0;transform:translateY(-50px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-@keyframes unroll{
-to{transform:scaleY(1);}
+#title{
+font-size:32px;
+margin-bottom:25px;
 }
 
-.scroll-paper h1{
-font-size:38px;
-margin-top:0;
+#message p{
+margin-bottom:18px;
+font-size:18px;
+line-height:1.6;
 }
 
-/* PHOTOS */
+/* ---------------- Photos ---------------- */
 
-.photo-section{
+.photos{
 display:none;
-margin:90px auto;
+margin-top:40px;
 display:flex;
 justify-content:center;
-gap:70px;
+gap:40px;
+flex-wrap:wrap;
 }
 
 .polaroid{
-background:#ffd6e5;
-padding:14px 14px 36px;
-width:220px;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-position:relative;
+background:#f7e6d2;
+padding:12px 12px 30px;
+width:200px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .polaroid img{
 width:100%;
-height:240px;
+height:220px;
 object-fit:cover;
 }
 
-.polaroid::before{
-content:"";
+.tilt1{transform:rotate(-6deg);}
+.tilt2{transform:rotate(4deg);}
+.tilt3{transform:rotate(-2deg);}
+
+/* ---------------- Kisses ---------------- */
+
+.kiss{
 position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%);
-width:70px;
-height:22px;
-background:rgba(255,255,255,0.7);
-border-radius:4px;
-box-shadow:0 2px 6px rgba(0,0,0,0.3);
+font-size:20px;
+animation:float 12s linear infinite;
+opacity:0.8;
 }
 
-.left{transform:rotate(-6deg);}
-.center{transform:rotate(3deg);}
-.right{transform:rotate(6deg);}
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-120vh);}
+}
