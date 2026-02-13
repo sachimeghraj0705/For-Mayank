@@ -204,6 +204,11 @@ body{
 
 /* Closing fade-in */
 .closing{
+  margin-top:90px;
+  color:white;
+  font-weight:bold;
+  padding-bottom:120px;
+  font-size:18px;
   opacity:0;
   transition:1.5s ease;
 }
@@ -211,4 +216,3 @@ body{
 .show-closing{
   opacity:1;
 }
-
