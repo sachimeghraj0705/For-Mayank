@@ -164,3 +164,32 @@ body{
     opacity:0;
   }
 }
+
+/* POLAROID FIX */
+.polaroid{
+  background:#f4ecd8;
+  padding:14px 14px 40px 14px;
+  width:220px;
+  position:relative;
+  box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Uniform image crop */
+.polaroid img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* Beige tape */
+.polaroid::before{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90px;
+  height:35px;
+  background:url("tape.png") center/contain no-repeat;
+}
+
