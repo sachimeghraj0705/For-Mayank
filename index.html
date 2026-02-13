@@ -1,54 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>For Mayank ❤️</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<div id="kisses"></div>
+<!-- Floating kisses -->
+<div class="kisses"></div>
 
-<!-- ENVELOPE SCREEN -->
-<div id="envelopeScreen">
-  <div class="envelope">
-    <div class="envelope-body"></div>
-    <div class="flap"></div>
-    <button id="seal">Press</button>
+<!-- ENVELOPE -->
+<div id="envelope-container">
+
+  <div id="envelope">
+
+    <div id="flap"></div>
+
+    <button id="waxSeal">
+      <span>Press</span>
+    </button>
+
   </div>
+
 </div>
 
 <!-- LETTER -->
-<div id="letterContainer">
+<div id="letter-container">
+
   <div id="letter">
-    <h1 id="title"></h1>
-    <div id="text"></div>
+
+    <!-- Stickers -->
+    <img src="lip-sticker.png" class="sticker lip-sticker">
+    <img src="ribbon-sticker.png" class="sticker ribbon-sticker">
+
+    <h1>Happy Valentine’s Day Mayank ❤️</h1>
+
+    <div id="typedText"></div>
+
   </div>
+
 </div>
 
-<!-- PHOTOS -->
+<!-- POLAROIDS -->
 <div id="photos">
-  <div class="polaroid left">
-    <div class="tape"></div>
+
+  <div class="polaroid">
     <img src="img1.jpg">
   </div>
 
-  <div class="polaroid center">
-    <div class="tape"></div>
+  <div class="polaroid">
     <img src="img2.jpg">
   </div>
 
-  <div class="polaroid right">
-    <div class="tape"></div>
+  <div class="polaroid">
     <img src="img3.jpg">
   </div>
-</div>
 
-  <div id="finalNote">
-  <p>No matter where life takes us, you’ll always have a piece of my heart.</p>
-  <span>Love,<br>Sachi</span>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
