@@ -2,49 +2,59 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: "Georgia", serif;
+font-family: Georgia, serif;
 }
 
 body{
-background:#f3efe9;
+background:#7b0f16;
 min-height:100vh;
+overflow-x:hidden;
 display:flex;
 justify-content:center;
-align-items:center;
-overflow-x:hidden;
+align-items:flex-start;
 }
 
-.scene{
-position:relative;
+.container{
 width:100%;
-max-width:900px;
+max-width:1000px;
+padding-top:80px;
 text-align:center;
+position:relative;
 }
 
-/* ---------------- Envelope ---------------- */
+/* ---------------- KISSES ---------------- */
+
+.kiss{
+position:absolute;
+font-size:20px;
+animation:float 12s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+from{transform:translateY(110vh);}
+to{transform:translateY(-120vh);}
+}
+
+/* ---------------- ENVELOPE ---------------- */
+
+.envelope-wrapper{
+display:flex;
+justify-content:center;
+}
 
 .envelope{
+width:380px;
+height:240px;
 position:relative;
-width:360px;
-height:230px;
-margin:auto;
 }
 
-.envelope-back{
-position:absolute;
+.body{
 width:100%;
 height:100%;
-background:#b11217;
-border-radius:8px;
-}
-
-.envelope-front{
+background:#b51219;
+border-radius:10px;
 position:absolute;
-width:100%;
-height:100%;
-background:#c9151b;
-clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
-border-radius:8px;
 }
 
 .flap{
@@ -53,14 +63,16 @@ top:-120px;
 left:0;
 width:0;
 height:0;
-border-left:180px solid transparent;
-border-right:180px solid transparent;
-border-bottom:120px solid #a50f14;
-transition:0.8s ease;
+border-left:190px solid transparent;
+border-right:190px solid transparent;
+border-bottom:120px solid #9c0f15;
 transform-origin:top;
+transition:1s ease;
 }
 
-/* Wax seal */
+.open .flap{
+transform:rotateX(180deg);
+}
 
 #seal{
 position:absolute;
@@ -70,62 +82,54 @@ transform:translate(-50%,-50%);
 width:70px;
 height:70px;
 border-radius:50%;
-background:radial-gradient(circle,#f3b2b2,#d98282);
+background:radial-gradient(circle,#f7b5b5,#cc7a7a);
 border:none;
-color:#7a1b1b;
 font-size:18px;
 font-weight:bold;
+color:#5a0c0c;
 cursor:pointer;
-box-shadow:0 6px 15px rgba(0,0,0,0.4);
-transition:0.3s;
-z-index:10;
+box-shadow:0 6px 15px rgba(0,0,0,0.5);
+z-index:5;
 }
 
-#seal:hover{
-transform:translate(-50%,-50%) scale(1.05);
-}
-
-/* Open animation */
-.open .flap{
-transform:rotateX(180deg);
-}
-
-.open #seal{
+.hide-envelope{
 opacity:0;
+transform:scale(0.6);
+transition:1s ease;
 pointer-events:none;
 }
 
-/* ---------------- Letter ---------------- */
+/* ---------------- LETTER ---------------- */
 
 .letter{
-width:500px;
+background:#f6e7cf;
+width:550px;
 max-width:90%;
-background:#fbf3e6;
-margin:30px auto;
-padding:40px;
+margin:50px auto;
+padding:50px;
 border-radius:6px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
 display:none;
-animation:scrollDown 1s ease forwards;
+animation:drop 1s ease forwards;
 }
 
-@keyframes scrollDown{
+@keyframes drop{
 from{opacity:0;transform:translateY(-50px);}
 to{opacity:1;transform:translateY(0);}
 }
 
 #title{
 font-size:32px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 #message p{
-margin-bottom:18px;
 font-size:18px;
-line-height:1.6;
+line-height:1.7;
+margin-bottom:18px;
 }
 
-/* ---------------- Photos ---------------- */
+/* ---------------- PHOTOS ---------------- */
 
 .photos{
 display:none;
@@ -137,32 +141,30 @@ flex-wrap:wrap;
 }
 
 .polaroid{
-background:#f7e6d2;
-padding:12px 12px 30px;
-width:200px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+background:#ecd9bc;
+padding:12px 12px 35px;
+width:210px;
+box-shadow:0 12px 25px rgba(0,0,0,0.4);
+position:relative;
 }
 
 .polaroid img{
 width:100%;
-height:220px;
+height:230px;
 object-fit:cover;
 }
 
-.tilt1{transform:rotate(-6deg);}
-.tilt2{transform:rotate(4deg);}
-.tilt3{transform:rotate(-2deg);}
-
-/* ---------------- Kisses ---------------- */
-
-.kiss{
+.tape{
+width:80px;
+height:25px;
+background:rgba(255,255,255,0.7);
 position:absolute;
-font-size:20px;
-animation:float 12s linear infinite;
-opacity:0.8;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+border-radius:4px;
 }
 
-@keyframes float{
-from{transform:translateY(100vh);}
-to{transform:translateY(-120vh);}
-}
+.left{transform:rotate(-6deg);}
+.center{transform:rotate(4deg);}
+.right{transform:rotate(-3deg);}
