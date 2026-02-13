@@ -1,78 +1,38 @@
-const seal = document.getElementById("seal");
-const envelope = document.querySelector(".envelope");
-const envelopeScreen = document.getElementById("envelopeScreen");
-
-const letterContainer = document.getElementById("letterContainer");
-const titleEl = document.getElementById("title");
-const textEl = document.getElementById("text");
+const openBtn = document.getElementById("openBtn");
+const flap = document.querySelector(".flap");
+const envelopeContainer = document.getElementById("envelope-container");
+const letter = document.getElementById("letter-container");
 const photos = document.getElementById("photos");
+const ending = document.getElementById("ending");
 
-const titleText = "Happy Valentine's Day Mayank ❤️";
-
-const paragraphs = [
-"Happy Valentine’s Day, my love.",
-"I don’t think you realize how much you mean to me.",
-"Even though we are going through a lot right now, I just want you to know that whether we are meant to be or not, I love you and I meant it when I said it.",
-"I really wanted to celebrate Valentine’s this year.",
-"I was hoping we could, because we barely get to celebrate any special days together.",
-"But it seems like the universe had other plans, so I made this little something for you instead.",
-"I hope you like it, because I’ve been planning this since before we took a break.",
-"I’m grateful for every laugh, every conversation, and every quiet moment we share.",
-"I care about you more than I can ever properly put into words. ❤️"
-];
-
-seal.onclick = () => {
-
-  envelope.classList.add("open");
+/* Open envelope */
+openBtn.addEventListener("click",()=>{
+  flap.style.transform="rotateX(180deg)";
 
   setTimeout(()=>{
-    envelopeScreen.style.display="none";
-    letterContainer.style.display="block";
-    typeWriter();
-  },1200);
-};
+    envelopeContainer.style.display="none";
+    letter.classList.remove("hidden");
+  },1000);
 
-let t=0,p=0,c=0;
+  setTimeout(()=>{
+    photos.classList.remove("hidden");
+  },2500);
 
-function typeWriter(){
-  if(t < titleText.length){
-    titleEl.innerHTML += titleText[t++];
-    setTimeout(typeWriter,60);
-  }
-  else if(p < paragraphs.length){
-    if(!textEl.children[p]){
-      const para=document.createElement("p");
-      textEl.appendChild(para);
-    }
+  setTimeout(()=>{
+    ending.classList.remove("hidden");
+  },3000);
+});
 
-    if(c < paragraphs[p].length){
-      textEl.children[p].innerHTML += paragraphs[p][c++];
-      setTimeout(typeWriter,30);
-    } else {
-      p++; c=0;
-      setTimeout(typeWriter,400);
-    }
-  }
-  else{
-    photos.style.display="flex";
-setTimeout(()=>{
-  document.getElementById("finalNote").style.display="block";
-},1200);
+/* Kisses */
+function createKiss(){
+  const kiss=document.createElement("div");
+  kiss.className="kiss";
+  kiss.innerHTML="💋";
+  kiss.style.left=Math.random()*window.innerWidth+"px";
+  kiss.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(kiss);
 
-  }
+  setTimeout(()=>kiss.remove(),6000);
 }
 
-/* KISSES */
-
-const kissBox = document.getElementById("kisses");
-
-setInterval(()=>{
-  const k=document.createElement("div");
-  k.className="kiss";
-  k.innerHTML="💋";
-  k.style.left=Math.random()*100+"vw";
-  k.style.fontSize=14+Math.random()*14+"px";
-  k.style.animationDuration=8+Math.random()*6+"s";
-  kissBox.appendChild(k);
-  setTimeout(()=>k.remove(),12000);
-},500);
+setInterval(createKiss,300);
